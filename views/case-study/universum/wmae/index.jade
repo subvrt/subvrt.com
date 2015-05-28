@@ -1,0 +1,50 @@
+extends ../../../case_study
+
+block header
+  h2 Case Study: World's Most Attractive Employers
+
+block content
+  .case-study
+    section.box
+      .title
+        h4 TL;DR
+      p
+        | By using <a href="http://en.wikipedia.org/wiki/Multitenancy">advanced database techniques</a>, and <a href='http://www.postgresql.org/docs/9.3/static/rules-materializedviews.html'>cutting-edge features</a> we were able to create <b>a global-scale solution</b> to a complex problem.
+    section
+      p
+        | Each year Universum Global, the global leader in employer branding, produces an extensive report on how people entering the job market view the world's top brands. This report is the core of their business, and they chose Subvrt to help them make their vision for turning it into a digital product a reality.
+      p
+        | <b>Our task</b> was to devise and build an application architecture capable of scalling internationally to multiple markets, languages, and domains, each feeding data back to the the hub site, as well as any regional site as defined later via the admin interface.
+
+    section.text
+      figure
+        img(src='//subvrt.com/images/work/wmae/wmae-diagram.png'  alt='WMAE Diagram')
+      .text
+        p
+          b Scaling efficienty 
+          | to multiple domains, while mapping any amount of admin-defined data back to the main site was our first big challenge. After giving it some thought, we decided to rely on some <a href="http://en.wikipedia.org/wiki/Multitenancy">advanced database techniques</a>, and <a href='http://www.postgresql.org/docs/9.3/static/rules-materializedviews.html'>cutting-edge features</a>. This allowed us to stick to 
+          b
+            | a single code-base, which was a huge win in terms of overhead.
+          p
+            | We were also able to reduce the burden on our client by creating a central hub from which translations were managed, instead of having to manage them seperately to each site. These translations were then applied to each site via a simple configuration file.
+          p
+            | A focus on
+            b
+              |  preserving performance
+            |, specifically when interfacing with the database would be absolutely necessary if this was going to work. Especially given we would be loading some pretty dense mapping libraries in addition to loading data across multiple schema's (eek).  Luckily thanks to many of the features mentioned before, some tricky <b>custom SQL queries</b>, and a bit of caching, we were able to have any admin dynamically define what data mapped back to hub-sites without slowing down page load due to inefficient database queries.
+          p
+            | Thanks to all that, <b>avoiding repetition</b> was a breeze! We ended up with a single deployment, and a single code base, but distinct sites across multiple domains. Putting a little time in upfront for research and execution paid off bigtime! From here we just stuck to best practices, and went full steam ahead!
+      .clearfix
+      section.box
+        .title
+          h4 Result
+        p
+          | A beautiful, <a href="http://en.wikipedia.org/wiki/Multitenancy">multi-tenanted</a> application, serving each version of the site to its unique domain, with minimal overhead in terms of maintenance, and no database-related performance issues. Best of all, deploying sites for additional markets only required make a couple additions to a configuration file! <b>A Happy Client!</b>
+
+      section.examples
+        img(src='//subvrt.com/images/work/wmae/screencaps/wmae.png' alt='Hub Site')
+        p Hub Site
+        img(src='//subvrt.com/images/work/wmae/screencaps/top100-sa.png' alt='South Africa')
+        p South Africa
+        img(src='//subvrt.com/images/work/wmae/screencaps/top100-ru.png' alt='Russia')
+        p Russia

@@ -1,6 +1,16 @@
 extends layout
 
+block header
+  h2 Expert Software Development And Product Strategy
+
 block content
-  h3 Welcome to roots!
-  :markdown
-    Find tutorials and documentation at http://roots.cx : )
+  include ./shared/_contact
+  main.subvrt
+    section.examples
+      h2
+        a(href='/case-study/universum/wmae')
+          | Case Study: World's Most Attractive Employers
+      a(href='/case-study/universum/wmae')
+        img(src='//subvrt.com/images/work/wmae/wmae-map.png' alt='Universum WMAE' class='full-screen')
+      p
+        | Learn More
